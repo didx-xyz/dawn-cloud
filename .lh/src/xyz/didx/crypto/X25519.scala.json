@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/xyz/didx/crypto/X25519.scala",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1698054423263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1698054430847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-\n+pack\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054452044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n-pack\n+package xyz.didx.crypto\n+\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054483973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package xyz.didx.crypto\n-\n+// Implementation od\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054490845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package xyz.didx.crypto\n-// Implementation od\n+// Implementation o\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054498372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package xyz.didx.crypto\n-// Implementation o\n+// Implementation of X25519\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054504143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n package xyz.didx.crypto\n-// Implementation of X25519\n+// Implementation of X25519 elliptic curve cryptography\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054513685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n package xyz.didx.crypto\n // Implementation of X25519 elliptic curve cryptography\n+\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054518927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n package xyz.didx.crypto\n // Implementation of X25519 elliptic curve cryptography\n-\n+/*def \n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054530356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n package xyz.didx.crypto\n // Implementation of X25519 elliptic curve cryptography\n-/*def \n+\n+\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054538685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n package xyz.didx.crypto\n // Implementation of X25519 elliptic curve cryptography\n \n \n+\n object X25519 {\n   \n }\n"
+                },
+                {
+                    "date": 1698054548199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n package xyz.didx.crypto\n // Implementation of X25519 elliptic curve cryptography\n+// https://en.wikipedia.org/wiki/Curve25519\n+// https://tools.ietf.org/html/rfc7748\n \n \n \n object X25519 {\n"
+                },
+                {
+                    "date": 1698054555213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n package xyz.didx.crypto\n // Implementation of X25519 elliptic curve cryptography\n // https://en.wikipedia.org/wiki/Curve25519\n // https://tools.ietf.org/html/rfc7748\n+// https://cr.yp.to/ecdh/curve25519-20060209.pdf\n \n \n-\n object X25519 {\n   \n }\n"
+                }
+            ],
+            "date": 1698054423263,
+            "name": "Commit-0",
+            "content": "\nobject X25519 {\n  \n}\n"
+        }
+    ]
+}

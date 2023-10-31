@@ -1,0 +1,118 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 25,
+            "patches": [
+                {
+                    "date": 1697460960915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1697460967250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-#\n\\ No newline at end of file\n+# \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697460989623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-# \n\\ No newline at end of file\n+# DIDx Registrar and Resolver for did:key and did:web\n"
+                },
+                {
+                    "date": 1697461027431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n # DIDx Registrar and Resolver for did:key and did:web\n+## \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697461033856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n # DIDx Registrar and Resolver for did:key and did:web\n-## \n\\ No newline at end of file\n+## DIDKey: \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697461038946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n # DIDx Registrar and Resolver for did:key and did:web\n-## DIDKey: \n\\ No newline at end of file\n+## DIDKey: did:key\n"
+                },
+                {
+                    "date": 1697461050053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n # DIDx Registrar and Resolver for did:key and did:web\n-## DIDKey: did:key\n+## DIDKey : did:key\n"
+                },
+                {
+                    "date": 1697461056989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n # DIDx Registrar and Resolver for did:key and did:web\n-## DIDKey : did:key\n+## DIDKey Method: did:key\n+\n"
+                },
+                {
+                    "date": 1697461114090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n # DIDx Registrar and Resolver for did:key and did:web\n ## DIDKey Method: did:key\n-\n+##\n"
+                },
+                {
+                    "date": 1697461119856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n # DIDx Registrar and Resolver for did:key and did:web\n+\n ## DIDKey Method: did:key\n+\n ##\n"
+                },
+                {
+                    "date": 1697461126903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-##\n+## DID\n"
+                },
+                {
+                    "date": 1697461136690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-## DID\n+## DIDWeb Method\n"
+                },
+                {
+                    "date": 1697461142451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-## DIDWeb Method\n+## DIDWeb Method: did:w\n"
+                },
+                {
+                    "date": 1697461211329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-## DIDWeb Method: did:w\n+\n+## DIDWeb Method: did:web\n+\n+\n"
+                },
+                {
+                    "date": 1697461217125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n+### R\n \n ## DIDWeb Method: did:web\n \n \n"
+                },
+                {
+                    "date": 1697461222759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-### R\n+### Registrar\n \n+\n ## DIDWeb Method: did:web\n \n \n"
+                },
+                {
+                    "date": 1697461230007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n ## DIDKey Method: did:key\n \n ### Registrar\n \n+### Resolver\n \n ## DIDWeb Method: did:web\n \n \n"
+                },
+                {
+                    "date": 1697461236547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n ### Resolver\n \n ## DIDWeb Method: did:web\n \n-\n+###\n"
+                },
+                {
+                    "date": 1697461241627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,6 @@\n ### Resolver\n \n ## DIDWeb Method: did:web\n \n-###\n+### Registrar\n+\n"
+                },
+                {
+                    "date": 1697461248182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,4 +9,5 @@\n ## DIDWeb Method: did:web\n \n ### Registrar\n \n+###\n"
+                },
+                {
+                    "date": 1697461274905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-### Registrar\n+### DIDRegistrar\n \n ### Resolver\n \n ## DIDWeb Method: did:web\n \n ### Registrar\n \n-###\n+### Resolver\n+\n"
+                },
+                {
+                    "date": 1697461280128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-### DIDRegistrar\n+### DIDKRegistrar\n \n ### Resolver\n \n ## DIDWeb Method: did:web\n"
+                },
+                {
+                    "date": 1697461290204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n-### DIDKRegistrar\n+### DIDKey Registrar\n \n-### Resolver\n+### DIDResolver\n \n ## DIDWeb Method: did:web\n \n ### Registrar\n"
+                },
+                {
+                    "date": 1697461301576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,12 @@\n ## DIDKey Method: did:key\n \n ### DIDKey Registrar\n \n-### DIDResolver\n+### DIDKey Resolver\n \n ## DIDWeb Method: did:web\n \n-### Registrar\n+### DIDWebRegistrar\n \n ### Resolver\n \n"
+                },
+                {
+                    "date": 1697461308264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n ### DIDKey Resolver\n \n ## DIDWeb Method: did:web\n \n-### DIDWebRegistrar\n+### DIDWeb Registrar\n \n-### Resolver\n+### DIDResolver\n \n"
+                },
+                {
+                    "date": 1697461341424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n # DIDx Registrar and Resolver for did:key and did:web\n \n ## DIDKey Method: did:key\n \n+\n ### DIDKey Registrar\n \n ### DIDKey Resolver\n \n ## DIDWeb Method: did:web\n \n ### DIDWeb Registrar\n \n-### DIDResolver\n+### DIDWeb Resolver\n \n"
+                }
+            ],
+            "date": 1697460960915,
+            "name": "Commit-0",
+            "content": "#"
+        }
+    ]
+}

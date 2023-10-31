@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".scalafmt.conf",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1698238806423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1698238806423,
+            "name": "Commit-0",
+            "content": "version = \"3.7.12\"\n\nalign.preset = more\nmaxColumn = 120\nassumeStandardLibraryStripMargin = true\nindent.defnSite = 2\nassumeStandardLibraryStripMargin = true\ndocstrings.style = Asterisk\ndocstrings.wrapMaxColumn = 80\nindentOperator.topLevelOnly = false\nalign.preset = most\nalign.openParenCallSite = false\nnewlines.source = keep\nnewlines.beforeMultiline = keep\nnewlines.afterCurlyLambdaParams = keep\nnewlines.alwaysBeforeElseAfterCurlyIf = true\n\nrunner.dialect = scala3\n\nrewrite.rules = [\n  RedundantBraces\n  RedundantParens\n  SortModifiers\n]\n\nrewrite.redundantBraces {\n  ifElseExpressions = true\n  includeUnitMethods = false\n  stringInterpolation = true\n}\n\nrewrite.sortModifiers.order = [\n  \"private\", \"final\", \"override\", \"protected\",\n  \"implicit\", \"sealed\", \"abstract\", \"lazy\"\n]\n\nproject.excludeFilters = [\n  \".bloop\"\n  \".metals\"\n  \".scala-build\"\n  \"examples\" # Scala 3 scripts and using directives not supported yet\n  \"out\"\n  \"scala-version.scala\"\n]"
+        }
+    ]
+}

@@ -1,0 +1,934 @@
+{
+    "sourceFile": "src/xyz/didx/DIDDoc.scala",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 229,
+            "patches": [
+                {
+                    "date": 1697445958615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1697445963655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-final case class DIDDoc()\n+\n case class DIDDoc(did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446038491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-\n+package\n case class DIDDoc(did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446055088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n-package\n+package xyz.didx\n+\n+import io.circe.Encoder\n+\n case class DIDDoc(did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446745144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n-import io.circe.Encoder\n+import io.circe.*\n \n-case class DIDDoc(did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446751680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446761734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`: List did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446768147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`: List did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`: List[Stringdid: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446773406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`: List[Stringdid: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`: List[String]m did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446778785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`: List[String]m did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`: List[String] = did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446785046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`: List[String] = did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`: List[String] = List()did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446823982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`: List[String] = List()did: String, controller:Option[List[String]] = None)\n+case class DIDDoc(`@context`: List[String] = List(),did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446835658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+package xyz.didx\n+\n+import io.circe.*\n+\n+case class DIDDoc(`@context`: List[String] = List(\"\"https://www.w3.org/ns/did/v1\",\n+    \"https://w3id.org/security/suites/ed25519-2020/v1\",\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"\n+  ],),did: String, controller:Option[List[String]] = None)\n+   given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n+   given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446848845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,10 @@\n package xyz.didx\n \n import io.circe.*\n \n-case class DIDDoc(`@context`: List[String] = List(\"\"https://www.w3.org/ns/did/v1\",\n+case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"\n+    \"https://w3id.org/security/suites/x25519-2020/v1\")\n   ],),did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n-package xyz.didx\n-\n-import io.circe.*\n-\n-case class DIDDoc(`@context`: List[String] = List(),did: String, controller:Option[List[String]] = None)\n-   given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n-   given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446856759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\")\n-  ],),did: String, controller:Option[List[String]] = None)\n+),did: String, controller:Option[List[String]] = None)\n    given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n    given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+                },
+                {
+                    "date": 1697446874569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,6 @@\n import io.circe.*\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\")\n-),did: String, controller:Option[List[String]] = None)\n-   given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n-   given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n+    \"https://w3id.org/security/suites/x25519-2020/v1\")),did: String, controller:Option[List[String]] = None)\n+ \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697446888485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n package xyz.didx\n \n import io.circe.*\n \n+\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\")),did: String, controller:Option[List[String]] = None)\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697446971024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\")),did: String, controller:Option[List[String]] = None)\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:Option[List[String]] = None)\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697446986348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n package xyz.didx\n \n-import io.circe.*\n \n \n+\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:Option[List[String]] = None)\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697447284785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n package xyz.didx\n \n+import io.circe.generic.auto.*\n+import sttp.tapir.generic.auto.*\n+import sttp.tapir.json.circe.*\n \n \n-\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:Option[List[String]] = None)\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String]] = None)\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697447301850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String]] = None)\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String] = List)\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697447307415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String] = List)\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String] = List.empty)\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697447313571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String] = List.empty)\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String] = List.empty[String])\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697447543988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String, controller:List[String] = List.empty[String])\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = , controller:List[String] = List.empty[String])\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697447559217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = , controller:List[String] = List.empty[String])\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did\", controller:List[String] = List.empty[String])\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448629146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did\", controller:List[String] = List.empty[String])\n- \n\\ No newline at end of file\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n+ \n"
+                },
+                {
+                    "date": 1697448644978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,4 +8,6 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n+implicit val customSchema: Schema[Basket] = implicitly[Derived[Schema[Basket]]].value\n+  .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448656333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-implicit val customSchema: Schema[Basket] = implicitly[Derived[Schema[Basket]]].value\n+implicit val customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[Basket]]].value\n   .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448664981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-implicit val customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[Basket]]].value\n+implicit val customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[DIDDoc]]].value\n   .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448805182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,12 @@\n \n import io.circe.generic.auto.*\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n+import sttp.tapir.Schema\n \n \n+\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n"
+                },
+                {
+                    "date": 1697448847188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,6 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-implicit val customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[DIDDoc]]].value\n+ customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[DIDDoc]]].value\n   .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448874723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,14 @@\n import io.circe.generic.auto.*\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n+import sttp.tapir.generic.Derived\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n- customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[DIDDoc]]].value\n+given  customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[DIDDoc]]].value\n   .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448894983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,6 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-given  customDIDDocSchema: Schema[DIDDoc] = implicitly[Derived[Schema[DIDDoc]]].value\n+given  customDIDDocSchema: Schema[DIDDoc] = \n   .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1697448906404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-given  customDIDDocSchema: Schema[DIDDoc] = \n-  .modify(_.fruits.each.amount)(_.description(\"How many fruits?\"))\n\\ No newline at end of file\n+given  customDIDDocSchema: Schema[DIDDoc] = Schema.derived[DIDDoc]\n"
+                },
+                {
+                    "date": 1697448923401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+package xyz.didx\n+\n+import io.circe.generic.auto.*\n+import sttp.tapir.generic.auto.*\n+import sttp.tapir.json.circe.*\n+import sttp.tapir.Schema\n+import sttp.tapir.generic.Derived\n+\n+\n+\n+case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n+    \"https://w3id.org/security/suites/ed25519-2020/v1\",\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n+ \n+  given  customDIDDocSchema: Schema[DIDDoc] = Schema.derived[DIDDoc]\n"
+                },
+                {
+                    "date": 1697448951140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,20 +11,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-  given  customDIDDocSchema: Schema[DIDDoc] = Schema.derived[DIDDoc]\n-package xyz.didx\n-\n-import io.circe.generic.auto.*\n-import sttp.tapir.generic.auto.*\n-import sttp.tapir.json.circe.*\n-import sttp.tapir.Schema\n-import sttp.tapir.generic.Derived\n-\n-\n-\n-case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n-    \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n- \n-given  customDIDDocSchema: Schema[DIDDoc] = Schema.derived[DIDDoc]\n+  given  customDIDDocSchema: Schema[DIDDoc] = Schema.derived\n"
+                },
+                {
+                    "date": 1697448972758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-  given  customDIDDocSchema: Schema[DIDDoc] = Schema.derived\n+  given customDIDDocSchema: Schema[DIDDoc] = Schema.derived\n"
+                },
+                {
+                    "date": 1697448984639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import io.circe.generic.auto.*\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n-import sttp.tapir.generic.Derived\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n"
+                },
+                {
+                    "date": 1697449032628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-  given customDIDDocSchema: Schema[DIDDoc] = Schema.derived\n+  given \n"
+                },
+                {
+                    "date": 1697449041412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-  given \n+  given DIDDoc\n"
+                },
+                {
+                    "date": 1697449048427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-  given DIDDoc\n+  given DIDDocDecoder \n"
+                },
+                {
+                    "date": 1697449062294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder \n+  given DIDDocDecoder : Schema[DIDDoc] = Schema.derived[DIDDoc]\n"
+                },
+                {
+                    "date": 1697449077042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,8 @@\n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n-    \"https://w3id.org/security/suites/x25519-2020/v1\"),did: String = \"did:web\", controller:List[String] = List.empty[String])\n+    \"https://w3id.org/security/suites/x25519-2020/v1\"),\n+    did: String = \"did:web\", controller:List[String] = List.empty[String])\n  \n   given DIDDocDecoder : Schema[DIDDoc] = Schema.derived[DIDDoc]\n"
+                },
+                {
+                    "date": 1697449100479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,7 +9,8 @@\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n-    did: String = \"did:web\", controller:List[String] = List.empty[String])\n+    did: String = \"did:web\", \n+    controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder : Schema[DIDDoc] = Schema.derived[DIDDoc]\n+  given DIDDocDecoder  Schema.derived[DIDDoc]\n"
+                },
+                {
+                    "date": 1697449110879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder  Schema.derived[DIDDoc]\n+  given DIDDocDecoder = decoder\n"
+                },
+                {
+                    "date": 1697449116352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder = decoder\n+  given DIDDocDecoder = \n"
+                },
+                {
+                    "date": 1697449124778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder = \n+  given DIDDocDecoder = new Decoder\n"
+                },
+                {
+                    "date": 1697449131883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import io.circe.generic.auto.*\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n+import io.circe.Decoder\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n@@ -12,5 +13,5 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder = new Decoder\n+  given DIDDocDecoder = new Decoder[] {}\n"
+                },
+                {
+                    "date": 1697449140111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,5 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder = new Decoder[] {}\n+  given DIDDocDecoder = new Decoder}\n"
+                },
+                {
+                    "date": 1697449148226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,14 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder = new Decoder}\n+  given DIDDocDecoder = new Decoder[DIDDoc] {\n+    final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n+      for {\n+        context <- c.downField(\"@context\").as[List[String]]\n+        did <- c.downField(\"did\").as[String]\n+        controller <- c.downField(\"controller\").as[List[String]]\n+      } yield {\n+        DIDDoc(context, did, controller)\n+      }\n+  }\n"
+                },
+                {
+                    "date": 1697449238818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DIDDocDecoder = new Decoder[DIDDoc] {\n+  given DocDecoder = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n       for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449244109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given DocDecoder = new Decoder[DIDDoc] {\n+  given didDocDecoder[] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n       for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449250200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given didDocDecoder[] = new Decoder[DIDDoc] {\n+  given didDocDecoder = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n       for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449255871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given didDocDecoder = new Decoder[DIDDoc] {\n+  given didDocDecoder: Ecoder[] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n       for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449267283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given didDocDecoder: Ecoder[] = new Decoder[DIDDoc] {\n+  given didDocDecoder: Encoder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n       for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449283857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n import io.circe.Decoder\n+import io.circe.Encoder\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n"
+                },
+                {
+                    "date": 1697449292051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n import io.circe.Decoder\n import io.circe.Encoder\n+import io.circe.HCursor\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n"
+                },
+                {
+                    "date": 1697449308234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,14 +15,14 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-  given didDocDecoder: Encoder[DIDDoc] = new Decoder[DIDDoc] {\n-    final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n-      for {\n-        context <- c.downField(\"@context\").as[List[String]]\n-        did <- c.downField(\"did\").as[String]\n-        controller <- c.downField(\"controller\").as[List[String]]\n-      } yield {\n-        DIDDoc(context, did, controller)\n-      }\n-  }\n+given didDocDecoder: Encoder[DIDDoc] = new Decoder[DIDDoc] {\n+final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n+    for {\n+    context <- c.downField(\"@context\").as[List[String]]\n+    did <- c.downField(\"did\").as[String]\n+    controller <- c.downField(\"controller\").as[List[String]]\n+    } yield {\n+    DIDDoc(context, did, controller)\n+    }\n+}\n"
+                },
+                {
+                    "date": 1697449316364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,13 @@\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n given didDocDecoder: Encoder[DIDDoc] = new Decoder[DIDDoc] {\n-final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n-    for {\n-    context <- c.downField(\"@context\").as[List[String]]\n-    did <- c.downField(\"did\").as[String]\n-    controller <- c.downField(\"controller\").as[List[String]]\n-    } yield {\n-    DIDDoc(context, did, controller)\n+    final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n+        for {\n+        context <- c.downField(\"@context\").as[List[String]]\n+        did <- c.downField(\"did\").as[String]\n+        controller <- c.downField(\"controller\").as[List[String]]\n+        } yield {\n+        DIDDoc(context, did, controller)\n+        }\n     }\n-}\n"
+                },
+                {
+                    "date": 1697449335283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-given didDocDecoder: Encoder[DIDDoc] = new Decoder[DIDDoc] {\n+given didDocDecoder: coder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n         for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449342878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-given didDocDecoder: coder[DIDDoc] = new Decoder[DIDDoc] {\n+given didDocDecoder: Decodfercoder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n         for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n"
+                },
+                {
+                    "date": 1697449373190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n-given didDocDecoder: Decodfercoder[DIDDoc] = new Decoder[DIDDoc] {\n+given didDocDecoder: Decoder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n         for {\n         context <- c.downField(\"@context\").as[List[String]]\n         did <- c.downField(\"did\").as[String]\n@@ -25,4 +25,5 @@\n         } yield {\n         DIDDoc(context, did, controller)\n         }\n     }\n+\n"
+                },
+                {
+                    "date": 1697449382564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,5 @@\n         } yield {\n         DIDDoc(context, did, controller)\n         }\n     }\n-\n+given \n"
+                },
+                {
+                    "date": 1697449389490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,5 @@\n         } yield {\n         DIDDoc(context, did, controller)\n         }\n     }\n-given \n+given didDocD\n"
+                },
+                {
+                    "date": 1697449395406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,5 @@\n         } yield {\n         DIDDoc(context, did, controller)\n         }\n     }\n-given didDocD\n+given didDoc\n"
+                },
+                {
+                    "date": 1697449418088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n import sttp.tapir.Schema\n import io.circe.Decoder\n import io.circe.Encoder\n import io.circe.HCursor\n+import io.circe.Json\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n@@ -25,5 +26,11 @@\n         } yield {\n         DIDDoc(context, did, controller)\n         }\n     }\n-given didDoc\n+given didDocEncoder: Encoder[DIDDoc] = new Encoder[DIDDoc] {\n+    final def apply(a: DIDDoc): Json = Json.obj(\n+        (\"@context\", a.`@context`.asJson),\n+        (\"did\", a.did.asJson),\n+        (\"controller\", a.controller.asJson)\n+    )\n+}\n"
+                },
+                {
+                    "date": 1697449451089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n import io.circe.Json\n \n \n \n+\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n"
+                },
+                {
+                    "date": 1697449459831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import io.circe.generic.auto.*\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n-import io.circe.Decoder\n+import io.circe.*\n import io.circe.Encoder\n import io.circe.HCursor\n import io.circe.Json\n \n"
+                },
+                {
+                    "date": 1697449466281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,12 @@\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n import io.circe.*\n-import io.circe.Encoder\n-import io.circe.HCursor\n-import io.circe.Json\n+import io.circe.\n \n \n \n-\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     did: String = \"did:web\", \n"
+                },
+                {
+                    "date": 1697450526846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,16 +4,16 @@\n import sttp.tapir.generic.auto.*\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n import io.circe.*\n-import io.circe.\n+import io.circe.syntax.*\n \n \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n-    did: String = \"did:web\", \n+    id: String = \"did:web\", \n     controller:List[String] = List.empty[String])\n  \n given didDocDecoder: Decoder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n"
+                },
+                {
+                    "date": 1697450533745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n given didDocDecoder: Decoder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n         for {\n         context <- c.downField(\"@context\").as[List[String]]\n-        did <- c.downField(\"did\").as[String]\n+        id <- c.downField(\"did\").as[String]\n         controller <- c.downField(\"controller\").as[List[String]]\n         } yield {\n         DIDDoc(context, did, controller)\n         }\n"
+                },
+                {
+                    "date": 1697450539791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,8 @@\n     }\n given didDocEncoder: Encoder[DIDDoc] = new Encoder[DIDDoc] {\n     final def apply(a: DIDDoc): Json = Json.obj(\n         (\"@context\", a.`@context`.asJson),\n-        (\"did\", a.did.asJson),\n+        (\"did\", a..asJson),\n         (\"controller\", a.controller.asJson)\n     )\n }\n"
+                },
+                {
+                    "date": 1697450548104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,14 +21,14 @@\n         context <- c.downField(\"@context\").as[List[String]]\n         id <- c.downField(\"did\").as[String]\n         controller <- c.downField(\"controller\").as[List[String]]\n         } yield {\n-        DIDDoc(context, did, controller)\n+        DIDDoc(context, id, controller)\n         }\n     }\n given didDocEncoder: Encoder[DIDDoc] = new Encoder[DIDDoc] {\n     final def apply(a: DIDDoc): Json = Json.obj(\n         (\"@context\", a.`@context`.asJson),\n-        (\"did\", a..asJson),\n+        (\"did\", a.did.asJson),\n         (\"controller\", a.controller.asJson)\n     )\n }\n"
+                },
+                {
+                    "date": 1697450561526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,8 @@\n     }\n given didDocEncoder: Encoder[DIDDoc] = new Encoder[DIDDoc] {\n     final def apply(a: DIDDoc): Json = Json.obj(\n         (\"@context\", a.`@context`.asJson),\n-        (\"did\", a.did.asJson),\n+        (\"id\", a.id.asJson),\n         (\"controller\", a.controller.asJson)\n     )\n }\n"
+                },
+                {
+                    "date": 1697450567705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n given didDocDecoder: Decoder[DIDDoc] = new Decoder[DIDDoc] {\n     final def apply(c: HCursor): Decoder.Result[DIDDoc] =\n         for {\n         context <- c.downField(\"@context\").as[List[String]]\n-        id <- c.downField(\"did\").as[String]\n+        id <- c.downField(\"id\").as[String]\n         controller <- c.downField(\"controller\").as[List[String]]\n         } yield {\n         DIDDoc(context, id, controller)\n         }\n"
+                },
+                {
+                    "date": 1697628001838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,23 @@\n import sttp.tapir.Schema\n import io.circe.*\n import io.circe.syntax.*\n \n+enum DID(did: String):\n+       case DIDWeb(did: String) extends DID(did)\n+       case DIDKey(did: String) extends DID(did)\n+       case DIDUnknown(did: String) extends DID(did)\n \n+       def getDIDMethod: String = did.split(\":\")(1)\n+       def getDIDMethodSpecificId: String = did.split(\":\")(2)\n+       def setDIDMethodSpecificId(id: String): DID = id match\n+           case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n+           case id => DIDKey(s\"did:key:$id\")\n+   object DID:\n+       def apply(did: String): DID = did.split(\":\")(1) match\n+           case \"web\" => DIDWeb(did)\n+           case \"key\" => DIDKey(did)\n+           case _ => DIDUnknown(did)\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697628020622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n        def getDIDMethodSpecificId: String = did.split(\":\")(2)\n        def setDIDMethodSpecificId(id: String): DID = id match\n            case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n            case id => DIDKey(s\"did:key:$id\")\n-   object DID:\n+object DID:\n        def apply(did: String): DID = did.split(\":\")(1) match\n            case \"web\" => DIDWeb(did)\n            case \"key\" => DIDKey(did)\n            case _ => DIDUnknown(did)\n"
+                },
+                {
+                    "date": 1697628032400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,17 +7,17 @@\n import io.circe.*\n import io.circe.syntax.*\n \n enum DID(did: String):\n-       case DIDWeb(did: String) extends DID(did)\n-       case DIDKey(did: String) extends DID(did)\n-       case DIDUnknown(did: String) extends DID(did)\n+    case DIDWeb(did: String) extends DID(did)\n+    case DIDKey(did: String) extends DID(did)\n+    case DIDUnknown(did: String) extends DID(did)\n \n-       def getDIDMethod: String = did.split(\":\")(1)\n-       def getDIDMethodSpecificId: String = did.split(\":\")(2)\n-       def setDIDMethodSpecificId(id: String): DID = id match\n-           case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n-           case id => DIDKey(s\"did:key:$id\")\n+    def getDIDMethod: String = did.split(\":\")(1)\n+    def getDIDMethodSpecificId: String = did.split(\":\")(2)\n+    def setDIDMethodSpecificId(id: String): DID = id match\n+        case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n+        case id => DIDKey(s\"did:key:$id\")\n object DID:\n        def apply(did: String): DID = did.split(\":\")(1) match\n            case \"web\" => DIDWeb(did)\n            case \"key\" => DIDKey(did)\n"
+                },
+                {
+                    "date": 1697628040677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n     def setDIDMethodSpecificId(id: String): DID = id match\n         case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n         case id => DIDKey(s\"did:key:$id\")\n object DID:\n-       def apply(did: String): DID = did.split(\":\")(1) match\n-           case \"web\" => DIDWeb(did)\n-           case \"key\" => DIDKey(did)\n-           case _ => DIDUnknown(did)\n+def apply(did: String): DID = did.split(\":\")(1) match\n+    case \"web\" => DIDWeb(did)\n+    case \"key\" => DIDKey(did)\n+    case _ => DIDUnknown(did)\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697628050564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     def setDIDMethodSpecificId(id: String): DID = id match\n         case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n         case id => DIDKey(s\"did:key:$id\")\n object DID:\n-def apply(did: String): DID = did.split(\":\")(1) match\n+    def apply(did: String): DID = did.split(\":\")(1) match\n     case \"web\" => DIDWeb(did)\n     case \"key\" => DIDKey(did)\n     case _ => DIDUnknown(did)\n \n"
+                },
+                {
+                    "date": 1697628056034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     def setDIDMethodSpecificId(id: String): DID = id match\n         case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n         case id => DIDKey(s\"did:key:$id\")\n object DID:\n-    def apply(did: String): DID = did.split(\":\")(1) match\n+  def apply(did: String): DID = did.split(\":\")(1) match\n     case \"web\" => DIDWeb(did)\n     case \"key\" => DIDKey(did)\n     case _ => DIDUnknown(did)\n \n"
+                },
+                {
+                    "date": 1697628066399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n     def setDIDMethodSpecificId(id: String): DID = id match\n         case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n         case id => DIDKey(s\"did:key:$id\")\n object DID:\n-  def apply(did: String): DID = did.split(\":\")(1) match\n-    case \"web\" => DIDWeb(did)\n-    case \"key\" => DIDKey(did)\n-    case _ => DIDUnknown(did)\n+   def apply(did: String): DID = did.split(\":\")(1) match\n+        case \"web\" => DIDWeb(did)\n+        case \"key\" => DIDKey(did)\n+        case _ => DIDUnknown(did)\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697630041982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n     def getDIDMethodSpecificId: String = did.split(\":\")(2)\n     def setDIDMethodSpecificId(id: String): DID = id match\n         case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n         case id => DIDKey(s\"did:key:$id\")\n+        \n object DID:\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n"
+                },
+                {
+                    "date": 1697631818348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,14 +16,15 @@\n     def getDIDMethodSpecificId: String = did.split(\":\")(2)\n     def setDIDMethodSpecificId(id: String): DID = id match\n         case id if id.startsWith(\"http\") => DIDWeb(s\"did:web:$id\")\n         case id => DIDKey(s\"did:key:$id\")\n-        \n+\n object DID:\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n+        \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631824474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-        \n+enum \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631832629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum \n+enum Algo\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631847940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algo\n+enum algo\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631869651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum algo\n+enum Algo\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631875309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algo\n+enum algo\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631882431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum algo\n+enum Algo\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631890270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algo\n+enum 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz\n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697631900683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,19 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz\n+enum Algorithm(alg: String):\n+    case Ed25519(alg: String) extends Algorithm(alg)\n+    case X25519(alg: String) extends Algorithm(alg)\n+    case Unknown(alg: String) extends Algorithm(alg)\n \n+    def getAlgorithm: String = alg.split(\"#\")(1)\n+    def setAlgorithm(alg: String): Algorithm = alg match\n+        case \"Ed25519\" => Ed25519(s\"did:key#Ed25519\")\n+        case \"X25519\" => X25519(s\"did:key#X25519\")\n+        case _ => Unknown(alg)\n+\n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n     id: String = \"did:web\", \n"
+                },
+                {
+                    "date": 1697631927350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,14 @@\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n     case Ed25519(alg: String) extends Algorithm(alg)\n     case X25519(alg: String) extends Algorithm(alg)\n-    case Unknown(alg: String) extends Algorithm(alg)\n-\n+case (\"EC\", \"P-256\") => \"zDn\"\n+      case (\"EC\", \"P-384\") => \"z82\"\n+      case (\"EC\", \"P-521\") => \"z2J9\"\n+      case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n+      case (\"OKP\", \"X25519\")  => \"z6LS\"\n+      case (\"RSA\", _)         => \"z13\"\n     def getAlgorithm: String = alg.split(\"#\")(1)\n     def setAlgorithm(alg: String): Algorithm = alg match\n         case \"Ed25519\" => Ed25519(s\"did:key#Ed25519\")\n         case \"X25519\" => X25519(s\"did:key#X25519\")\n"
+                },
+                {
+                    "date": 1697631951310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n     case Ed25519(alg: String) extends Algorithm(alg)\n     case X25519(alg: String) extends Algorithm(alg)\n-case (\"EC\", \"P-256\") => \"zDn\"\n+    case  (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697631962019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,11 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n-    case Ed25519(alg: String) extends Algorithm(alg)\n+    \n     case X25519(alg: String) extends Algorithm(alg)\n-    case  (\"EC\", \"P-256\") => \"zDn\"\n+    case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632008199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n     \n-    case X25519(alg: String) extends Algorithm(alg)\n+    case X25519(key) extends Algorithm(alg)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632016059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n     \n-    case X25519(key) extends Algorithm(alg)\n+    case X25519(kty:) extends Algorithm(alg)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632021176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n     \n-    case X25519(kty:) extends Algorithm(alg)\n+    case X25519(kty:String, ) extends Algorithm(alg)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632029047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(alg: String):\n     \n-    case X25519(kty:String, ) extends Algorithm(alg)\n+    case X25519(kty:String, crv) extends Algorithm(alg)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632047712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,11 +22,10 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algorithm(alg: String):\n-    \n-    case X25519(kty:String, crv) extends Algorithm(alg)\n+enum Algorithm(kty:String, crv: String\n+    case X25519(kty:String, crv: String) extends Algorithm(alg)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632062757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String\n-    case X25519(kty:String, crv: String) extends Algorithm(alg)\n+    case X25519(kty:String, crv: String) extends Algorithm(kty,crv)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632084318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,8 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String\n-    case X25519(kty:String, crv: String) extends Algorithm(kty,crv)\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n       case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632095858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") => \"zDn\"\n-      case (\"EC\", \"P-384\") => \"z82\"\n+    /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n-      case (\"RSA\", _)         => \"z13\"\n+      case (\"RSA\", _)      */    => \"z13\"\n     def getAlgorithm: String = alg.split(\"#\")(1)\n     def setAlgorithm(alg: String): Algorithm = alg match\n         case \"Ed25519\" => Ed25519(s\"did:key#Ed25519\")\n         case \"X25519\" => X25519(s\"did:key#X25519\")\n"
+                },
+                {
+                    "date": 1697632104413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String\n-    case zDn (\"EC\", \"P-256\") => \"zDn\"\n+    case zDn (\"EC\", \"P-256\") \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632113937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") \n+    case z82 (\"EC\", \"P-384\")\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632119145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n+    case z2J9 (\"EC\", \"P-521\")\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632138846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n+    case \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632160357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n-    case \n+    case z\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632167495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n-    case z\n+    case z6Mk\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632178104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n enum Algorithm(kty:String, crv: String\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n-    case z6Mk\n+    case z6Mk (\"OKP\", \"Ed25519\")\n+    case z6LS (\"OKP\", \"X25519\")\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632184527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n+    case z13 (\"RSA\", _)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632198117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algorithm(kty:String, crv: String\n+enum Algorithm(kty:String, crv: String)\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n"
+                },
+                {
+                    "date": 1697632203306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algorithm(kty:String, crv: String)\n+enum Algorithm(kty:String, crv: String):\n     case zDn (\"EC\", \"P-256\") \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n"
+                },
+                {
+                    "date": 1697632234733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (\"EC\", \"P-256\") \n+    case zDn (\"EC\", \"P-256\") extends\n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n"
+                },
+                {
+                    "date": 1697632243627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (\"EC\", \"P-256\") extends\n+    case zDn (\"EC\", \"P-256\") extends \n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n"
+                },
+                {
+                    "date": 1697632249760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (\"EC\", \"P-256\") extends \n+    case zDn (\"EC\", \"P-256\") extends Algorithm(\n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n"
+                },
+                {
+                    "date": 1697632256472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (\"EC\", \"P-256\") extends Algorithm(\n+    case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv\n     case z82 (\"EC\", \"P-384\")\n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n"
+                },
+                {
+                    "date": 1697632278821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv\n-    case z82 (\"EC\", \"P-384\")\n+    case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv)\n+    case z82 (\"EC\", \"P-384\") \n     case z2J9 (\"EC\", \"P-521\")\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n     case z13 (\"RSA\", _)\n"
+                },
+                {
+                    "date": 1697632285539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,10 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n     case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (\"EC\", \"P-384\") \n-    case z2J9 (\"EC\", \"P-521\")\n+    case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n+    case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\")\n     case z6LS (\"OKP\", \"X25519\")\n     case z13 (\"RSA\", _)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697632291934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n enum Algorithm(kty:String, crv: String):\n     case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n-    case z6Mk (\"OKP\", \"Ed25519\")\n+    case z6Mk (\"OKP\", \"Ed25519\") \n     case z6LS (\"OKP\", \"X25519\")\n     case z13 (\"RSA\", _)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n"
+                },
+                {
+                    "date": 1697632306658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,10 @@\n enum Algorithm(kty:String, crv: String):\n     case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n-    case z6Mk (\"OKP\", \"Ed25519\") \n-    case z6LS (\"OKP\", \"X25519\")\n+    case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n+    case z6LS (\"OKP\", \"X25519\") \n     case z13 (\"RSA\", _)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632313875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,10 @@\n     case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n-    case z6LS (\"OKP\", \"X25519\") \n+    case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n+\n     case z13 (\"RSA\", _)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632319662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n \n-    case z13 (\"RSA\", _)\n+    case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632325777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,8 @@\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n-\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632397795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (\"EC\", \"P-256\") extends Algorithm(kty,crv)\n+    case zDn (k\"EC\", \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632404037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (k\"EC\", \"P-256\") extends Algorithm(kty,crv)\n+    case zDn (kty :String \"EC\", \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632410202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (kty :String \"EC\", \"P-256\") extends Algorithm(kty,crv)\n+    case zDn (kty :String  = \"EC\",  \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632417611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (kty :String  = \"EC\",  \"P-256\") extends Algorithm(kty,crv)\n+    case zDn (kty :String  = \"EC\", crv \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632423197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (kty :String  = \"EC\", crv \"P-256\") extends Algorithm(kty,crv)\n+    case zDn (kty :String  = \"EC\", crv: String \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632444510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (kty :String  = \"EC\", crv: String \"P-256\") extends Algorithm(kty,crv)\n+    case zDn (kty:String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n     case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632454539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n-    case zDn (kty:String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (\"EC\", \"P-384\") extends Algorithm(kty,crv)\n+    case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n+    case z82 (kty\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632462431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (kty\"EC\", \"P-384\") extends Algorithm(kty,crv)\n+    case z82 (kty: Str\"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632468459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (kty: Str\"EC\", \"P-384\") extends Algorithm(kty,crv)\n+    case z82 (kty: String = \"EC\", \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632475163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (kty: String = \"EC\", \"P-384\") extends Algorithm(kty,crv)\n+    case z82 (kty: String = \"EC\", crv \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632513436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (kty: String = \"EC\", crv \"P-384\") extends Algorithm(kty,crv)\n+    case z82 (kty: String = \"EC\", crv: Streing  \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632523860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm(kty:String, crv: String):\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n-    case z82 (kty: String = \"EC\", crv: Streing  \"P-384\") extends Algorithm(kty,crv)\n+    case z82 (kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n     case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632569952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algorithm(kty:String, crv: String):\n+enum Algorithm:\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n     case z82 (kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632583201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algorithm:\n+enum Algorithm::\n     case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n     case z82 (kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632593386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,10 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-enum Algorithm::\n-    case zDn (kty: String  = \"EC\", crv: String = \"P-256\") extends Algorithm(kty,crv)\n+enum Algorithm:\n+    case zDn\n     case z82 (kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty,crv)\n     case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n     case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n     case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n"
+                },
+                {
+                    "date": 1697632603167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,14 +23,10 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n-    case zDn\n-    case z82 (kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty,crv)\n-    case z2J9 (\"EC\", \"P-521\") extends Algorithm(kty,crv)\n-    case z6Mk (\"OKP\", \"Ed25519\") extends Algorithm(kty,crv)\n-    case z6LS (\"OKP\", \"X25519\") extends Algorithm(kty,crv)\n-    case z13 (\"RSA\", _) extends Algorithm(kty,crv)\n+    case zDn,\n+\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632618257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n-    case zDn,\n+    case zDn, \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632623849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n-    case zDn, \n+    case zDn, z13, z2J9, z82, z6LS, z6Mk, Unknown(alg: String)\n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632630939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n-    case zDn, z13, z2J9, z82, z6LS, z6Mk, Unknown(alg: String)\n+    case zDn, z13, z2J9, z82, z6LS, z6Mk, \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632649962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n-    case zDn, z13, z2J9, z82, z6LS, z6Mk, \n+    case zDn, z13, z2J9, z82, z6LS, z6Mk\n+ object    \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632665892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n- object    \n+ object Algorithm:\n+    def    \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632673883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n-    def    \n+    def apply()   \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632678991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n-    def apply()   \n+    def apply(kty)   \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632687950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n-    def apply(kty)   \n+    def apply(kty: String)   \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632696173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n-    def apply(kty: String)   \n+    def apply(kty: String, crv: String)   \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632927822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n-    def apply(kty: String, crv: String)   \n+    def apply(kty: String, crv: String)  \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632939396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,10 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n-    def apply(kty: String, crv: String)  \n+    def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n+      case (\"EC\", \"P-256\") => \"zDn\" \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n"
+                },
+                {
+                    "date": 1697632953720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,11 @@\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n-      case (\"EC\", \"P-256\") => \"zDn\" \n+      case (\"EC\", \"P-256\") => zDn\"\n \n+\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697632973953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n-      case (\"EC\", \"P-256\") => zDn\"\n+      case (\"EC\", \"P-256\") => zDn\n+      case\n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n"
+                },
+                {
+                    "date": 1697632979931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n-      case\n+      case \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n"
+                },
+                {
+                    "date": 1697632989059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n  object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n-      case \n+      case (\"EC\", \"P-384\") => z82\n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n"
+                },
+                {
+                    "date": 1697632999631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,10 @@\n  object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n+        case (\"EC\", \"P-521\") => z2J9\n+        \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n"
+                },
+                {
+                    "date": 1697633030424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,16 +24,16 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n- object Algorithm:\n+object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n-        case (\"EC\", \"P-521\") => z2J9\n-        \n+      case (\"EC\", \"P-521\") => z2J9\n \n \n+\n     /*   case (\"EC\", \"P-384\") => \"z82\"\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n"
+                },
+                {
+                    "date": 1697633055404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n       case (\"EC\", \"P-521\") => z2J9\n+      \n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633062145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,10 @@\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n       case (\"EC\", \"P-521\") => z2J9\n-      \n+        case (\"OKP\", \"Ed25519\") => z6Mk\n+        \n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633068484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,10 @@\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n       case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n-        \n+        case (\"OKP\", \"X25519\")  => z6LS\n+        case (\"RSA\", _)      => z13\n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633103031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,10 @@\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n       case (\"EC\", \"P-521\") => z2J9\n-        case (\"OKP\", \"Ed25519\") => z6Mk\n-        case (\"OKP\", \"X25519\")  => z6LS\n+            case (\"OKP\", \"Ed25519\") => z6Mk\n+            case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n \n \n \n"
+                },
+                {
+                    "date": 1697633108893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,10 @@\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n       case (\"EC\", \"P-521\") => z2J9\n-            case (\"OKP\", \"Ed25519\") => z6Mk\n-            case (\"OKP\", \"X25519\")  => z6LS\n+    case (\"OKP\", \"Ed25519\") => z6Mk\n+    case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n \n \n \n"
+                },
+                {
+                    "date": 1697633119374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,11 @@\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n       case (\"EC\", \"P-521\") => z2J9\n-    case (\"OKP\", \"Ed25519\") => z6Mk\n-    case (\"OKP\", \"X25519\")  => z6LS\n-        case (\"RSA\", _)      => z13\n+case (\"OKP\", \"Ed25519\") => z6Mk\n+case (\"OKP\", \"X25519\")  => z6LS\n+case (\"RSA\", _)      => z13\n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633127384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,12 @@\n object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n-      case (\"EC\", \"P-521\") => z2J9\n-case (\"OKP\", \"Ed25519\") => z6Mk\n-case (\"OKP\", \"X25519\")  => z6LS\n-case (\"RSA\", _)      => z13\n+        case (\"EC\", \"P-521\") => z2J9\n+        case (\"OKP\", \"Ed25519\") => z6Mk\n+        case (\"OKP\", \"X25519\")  => z6LS\n+        case (\"RSA\", _)      => z13\n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633132899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,12 @@\n object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n       case (\"EC\", \"P-384\") => z82\n-        case (\"EC\", \"P-521\") => z2J9\n-        case (\"OKP\", \"Ed25519\") => z6Mk\n-        case (\"OKP\", \"X25519\")  => z6LS\n-        case (\"RSA\", _)      => z13\n+    case (\"EC\", \"P-521\") => z2J9\n+    case (\"OKP\", \"Ed25519\") => z6Mk\n+    case (\"OKP\", \"X25519\")  => z6LS\n+    case (\"RSA\", _)      => z13\n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633146347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,13 +27,13 @@\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n object Algorithm:\n     def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n       case (\"EC\", \"P-256\") => zDn\n-      case (\"EC\", \"P-384\") => z82\n-    case (\"EC\", \"P-521\") => z2J9\n-    case (\"OKP\", \"Ed25519\") => z6Mk\n-    case (\"OKP\", \"X25519\")  => z6LS\n-    case (\"RSA\", _)      => z13\n+      case (\"EC\", \"P-384\") => z82   \n+        case (\"EC\", \"P-521\") => z2J9\n+        case (\"OKP\", \"Ed25519\") => z6Mk\n+        case (\"OKP\", \"X25519\")  => z6LS\n+        case (\"RSA\", _)      => z13\n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697633257832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,11 +25,11 @@\n         case _ => DIDUnknown(did)\n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n object Algorithm:\n-    def apply(kty: String, crv: String) : Algorithm = (kty, crv) match\n-      case (\"EC\", \"P-256\") => zDn\n-      case (\"EC\", \"P-384\") => z82   \n+    def apply(kty: String, crv: String) = (kty, crv) match\n+        case (\"EC\", \"P-256\") => zDn\n+        case (\"EC\", \"P-384\") => z82   \n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n"
+                },
+                {
+                    "date": 1697633308772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n+        \n enum Algorithm:\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n"
+                },
+                {
+                    "date": 1697633397017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,10 @@\n    def apply(did: String): DID = did.split(\":\")(1) match\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n-        \n-enum Algorithm:\n+\n+enum Algorithm\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633405349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm\n+enum Algorithm(KTY)\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633412011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm(KTY)\n+enum Algorithm(kty)\n     case zDn, z13, z2J9, z82, z6LS, z6Mk\n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633421983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm(kty)\n-    case zDn, z13, z2J9, z82, z6LS, z6Mk\n+enum Algorithm(kty: String, crv: String):\n+    \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82   \n"
+                },
+                {
+                    "date": 1697633437583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,24 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n enum Algorithm(kty: String, crv: String):\n-    \n+    case zDn extends Algorithm(\"EC\", \"P-256\")\n+    case z82 extends Algorithm(\"EC\", \"P-384\")\n+    case z2J9 extends Algorithm(\"EC\", \"P-521\")\n+    case z6Mk extends Algorithm(\"OKP\", \"Ed25519\")\n+    case z6LS extends Algorithm(\"OKP\", \"X25519\")\n+    case z13 extends Algorithm(\"RSA\", \"2048\")\n+\n+    def getKty: String = kty\n+    def getCrv: String = crv\n+    def getAlgorithm: String = s\"$kty#$crv\"\n+    def setKty(kty: String): Algorithm = Algorithm(kty, crv)\n+    def setCrv(crv: String): Algorithm = Algorithm(kty, crv)\n+    def setAlgorithm(alg: String): Algorithm = alg match\n+        case \"Ed25519\" => Algorithm(\"OKP\", \"Ed25519\")\n+        case \"X25519\" => Algorithm(\"OKP\", \"X25519\")\n+        case _ => Algorithm(\"EC\", \"P-256\")\n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82   \n"
+                },
+                {
+                    "date": 1697633463265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,17 +31,9 @@\n     case z6Mk extends Algorithm(\"OKP\", \"Ed25519\")\n     case z6LS extends Algorithm(\"OKP\", \"X25519\")\n     case z13 extends Algorithm(\"RSA\", \"2048\")\n \n-    def getKty: String = kty\n-    def getCrv: String = crv\n-    def getAlgorithm: String = s\"$kty#$crv\"\n-    def setKty(kty: String): Algorithm = Algorithm(kty, crv)\n-    def setCrv(crv: String): Algorithm = Algorithm(kty, crv)\n-    def setAlgorithm(alg: String): Algorithm = alg match\n-        case \"Ed25519\" => Algorithm(\"OKP\", \"Ed25519\")\n-        case \"X25519\" => Algorithm(\"OKP\", \"X25519\")\n-        case _ => Algorithm(\"EC\", \"P-256\")\n+  \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82   \n"
+                },
+                {
+                    "date": 1697633501177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,15 +24,15 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n enum Algorithm(kty: String, crv: String):\n-    case zDn extends Algorithm(\"EC\", \"P-256\")\n+    case zDn( extends Algorithm(\"EC\", \"P-256\")\n     case z82 extends Algorithm(\"EC\", \"P-384\")\n     case z2J9 extends Algorithm(\"EC\", \"P-521\")\n     case z6Mk extends Algorithm(\"OKP\", \"Ed25519\")\n     case z6LS extends Algorithm(\"OKP\", \"X25519\")\n     case z13 extends Algorithm(\"RSA\", \"2048\")\n-\n+)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633508585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,15 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n enum Algorithm(kty: String, crv: String):\n-    case zDn( extends Algorithm(\"EC\", \"P-256\")\n-    case z82 extends Algorithm(\"EC\", \"P-384\")\n-    case z2J9 extends Algorithm(\"EC\", \"P-521\")\n-    case z6Mk extends Algorithm(\"OKP\", \"Ed25519\")\n-    case z6LS extends Algorithm(\"OKP\", \"X25519\")\n-    case z13 extends Algorithm(\"RSA\", \"2048\")\n-)\n+    case zDn(\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633513965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n enum Algorithm(kty: String, crv: String):\n-    case zDn(\n+    case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633522136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n         case _ => DIDUnknown(did)\n \n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n+    case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633533710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n \n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n+    case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633543098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n+    \n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633569277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n-    \n+    case\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633577542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n-    case\n+    case z6\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633591627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n-    case z6\n+    case z6LS\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633597200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,10 @@\n enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n-    case z6LS\n+    case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n+    \n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633624213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    \n+    case \n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633631303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case \n+    case z13(kty: String = \"RSA\", crv: String = \"RSA\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633640539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case z13(kty: String = \"RSA\", crv: String = \"RSA\") extends Algorithm(kty, crv)\n+    case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n"
+                },
+                {
+                    "date": 1697633652292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n-        case (\"EC\", \"P-256\") => zDn\n+        case (\"EC\", \"P-256\") => zDn()\n         case (\"EC\", \"P-384\") => z82   \n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n"
+                },
+                {
+                    "date": 1697633666124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n-        case (\"EC\", \"P-256\") => zDn()\n+        case (\"EC\", \"P-256\") => zDn(kty, crv)\n         case (\"EC\", \"P-384\") => z82   \n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n"
+                },
+                {
+                    "date": 1697633675325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n-        case (\"EC\", \"P-384\") => z82   \n+        case (\"EC\", \"P-384\") => z82()   \n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n"
+                },
+                {
+                    "date": 1697633681331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   \n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n-        case (\"EC\", \"P-384\") => z82()   \n+        case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n"
+                },
+                {
+                    "date": 1697633688829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n object Algorithm:\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n-        case (\"EC\", \"P-521\") => z2J9\n+        case (\"EC\", \"P-521\") => z2J9(kty, crv)\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n \n"
+                },
+                {
+                    "date": 1697633694051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n-        case (\"OKP\", \"Ed25519\") => z6Mk\n+        case (\"OKP\", \"Ed25519\") => z6Mk()\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13\n \n \n"
+                },
+                {
+                    "date": 1697633700098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,10 +35,10 @@\n     def apply(kty: String, crv: String) = (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n-        case (\"OKP\", \"Ed25519\") => z6Mk()\n-        case (\"OKP\", \"X25519\")  => z6LS\n+        case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n+        case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13\n \n \n \n"
+                },
+                {
+                    "date": 1697633812606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n-        case (\"RSA\", _)      => z13\n+        case (\"RSA\", _)      => z13(kty, crv)   \n \n \n \n     /*   case (\"EC\", \"P-384\") => \"z82\"\n"
+                },
+                {
+                    "date": 1697634423390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,10 @@\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n-    def apply(kty: String, crv: String) = (kty, crv) match\n+    def apply(kty: String, crv: String) =\n+         (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n"
+                },
+                {
+                    "date": 1697634479984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n-         (kty, crv) match\n+      (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn(kty, crv)\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n@@ -47,13 +47,9 @@\n       case (\"EC\", \"P-521\") => \"z2J9\"\n       case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n       case (\"OKP\", \"X25519\")  => \"z6LS\"\n       case (\"RSA\", _)      */    => \"z13\"\n-    def getAlgorithm: String = alg.split(\"#\")(1)\n-    def setAlgorithm(alg: String): Algorithm = alg match\n-        case \"Ed25519\" => Ed25519(s\"did:key#Ed25519\")\n-        case \"X25519\" => X25519(s\"did:key#X25519\")\n-        case _ => Unknown(alg)\n+   \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n     \"https://w3id.org/security/suites/x25519-2020/v1\"),\n"
+                },
+                {
+                    "date": 1697634490650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,13 +42,9 @@\n         case (\"RSA\", _)      => z13(kty, crv)   \n \n \n \n-    /*   case (\"EC\", \"P-384\") => \"z82\"\n-      case (\"EC\", \"P-521\") => \"z2J9\"\n-      case (\"OKP\", \"Ed25519\") => \"z6Mk\"\n-      case (\"OKP\", \"X25519\")  => \"z6LS\"\n-      case (\"RSA\", _)      */    => \"z13\"\n+\n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697634533593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n+    \n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n"
+                },
+                {
+                    "date": 1697634540037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    \n+    case \n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n"
+                },
+                {
+                    "date": 1697634551435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case \n+    case z6\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n"
+                },
+                {
+                    "date": 1697634556903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case z6\n+    case z6Mk\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n"
+                },
+                {
+                    "date": 1697634572845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case z6Mk\n+    case z6Mk(kty: String = \"OKP\", crv: String = \"Ed25519\") extends Algorithm(kty, crv)\n     case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n"
+                },
+                {
+                    "date": 1697634674343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,27 @@\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13(kty, crv)   \n \n \n+enum Algorithm(kty: String, crv: String):\n+    case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n+    case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n+    case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n+    case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n+    case z6Mk(kty: String = \"OKP\", crv: String = \"Ed25519\") extends Algorithm(kty, crv)\n+    case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n \n+object Algorithm:\n+    def apply(kty: String, crv: String) =\n+      (kty, crv) match\n+        case (\"EC\", \"P-256\") => zDn(kty, crv)\n+        case (\"EC\", \"P-384\") => z82(kty, crv)   \n+        case (\"EC\", \"P-521\") => z2J9(kty, crv)\n+        case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n+        case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n+        case (\"RSA\", _)      => z13(kty, crv)   \n \n+\n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697634681254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm(kty: String, crv: String):\n+enum Algorithm:\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n"
+                },
+                {
+                    "date": 1697634689507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,14 +24,9 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n enum Algorithm:\n-    case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n-    case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n-    case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n-    case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case z6Mk(kty: String = \"OKP\", crv: String = \"Ed25519\") extends Algorithm(kty, crv)\n-    case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n+    case zDn\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634695865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm:\n-    case zDn\n+enum Algorithm\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634701654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,15 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm\n+enum Algorithm:\n+    case Ed25519\n+    case X25519\n+    case P256\n+    case P384\n+    case P521\n+    case RSA\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634715316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,14 +24,8 @@\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n enum Algorithm:\n-    case Ed25519\n-    case X25519\n-    case P256\n-    case P384\n-    case P521\n-    case RSA\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634725747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm:\n+enum Algorithm: case \n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634733215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm: case \n+enum Algorithm: case zDn\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634742401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm: case zDn\n+enum Algorithm: case zDn, \n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634758191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,14 +23,14 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm: case zDn, \n+enum Algorithm: case zDn, z82, z2J9, z6LS, z6Mk, z13\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n-        case (\"EC\", \"P-256\") => zDn(kty, crv)\n+        case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82(kty, crv)   \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n"
+                },
+                {
+                    "date": 1697634768506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n         case \"web\" => DIDWeb(did)\n         case \"key\" => DIDKey(did)\n         case _ => DIDUnknown(did)\n \n-enum Algorithm: case zDn, z82, z2J9, z6LS, z6Mk, z13\n+enum Algorithm: \n+    case zDn, z82, z2J9, z6LS, z6Mk, z13\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697634803789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13(kty, crv)   \n \n \n-enum Algorithm(kty: String, crv: String):\n+/* enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n     case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n     case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n     case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n@@ -55,9 +55,9 @@\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13(kty, crv)   \n \n-\n+ */\n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697634814800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n-        case (\"EC\", \"P-384\") => z82(kty, crv)   \n+        case (\"EC\", \"P-384\") => z82 \n         case (\"EC\", \"P-521\") => z2J9(kty, crv)\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13(kty, crv)   \n"
+                },
+                {
+                    "date": 1697634819881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82 \n-        case (\"EC\", \"P-521\") => z2J9(kty, crv)\n+        case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13(kty, crv)   \n \n"
+                },
+                {
+                    "date": 1697634825740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n       (kty, crv) match\n         case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82 \n         case (\"EC\", \"P-521\") => z2J9\n-        case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n+        case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n         case (\"RSA\", _)      => z13(kty, crv)   \n \n \n"
+                },
+                {
+                    "date": 1697634835741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,10 @@\n         case (\"EC\", \"P-256\") => zDn\n         case (\"EC\", \"P-384\") => z82 \n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n-        case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n-        case (\"RSA\", _)      => z13(kty, crv)   \n+        case (\"OKP\", \"X25519\")  => z6LS\n+        case (\"RSA\", _)      => z13 \n \n \n /* enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n"
+                },
+                {
+                    "date": 1697634880253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,9 @@\n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13 \n+        \n \n \n /* enum Algorithm(kty: String, crv: String):\n     case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n"
+                },
+                {
+                    "date": 1697634985537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,30 +35,9 @@\n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13 \n-        \n-\n-\n-/* enum Algorithm(kty: String, crv: String):\n-    case zDn(kty: String = \"EC\", crv: String = \"P-256\") extends Algorithm(kty, crv)\n-    case z82(kty: String = \"EC\", crv: String = \"P-384\") extends Algorithm(kty, crv)\n-    case z2J9(kty: String = \"EC\", crv: String = \"P-521\") extends Algorithm(kty, crv)\n-    case z6LS(kty: String = \"OKP\", crv: String = \"X25519\") extends Algorithm(kty, crv)\n-    case z6Mk(kty: String = \"OKP\", crv: String = \"Ed25519\") extends Algorithm(kty, crv)\n-    case z13(kty: String = \"RSA\", crv: String = \"\") extends Algorithm(kty, crv)\n-\n-object Algorithm:\n-    def apply(kty: String, crv: String) =\n-      (kty, crv) match\n-        case (\"EC\", \"P-256\") => zDn(kty, crv)\n-        case (\"EC\", \"P-384\") => z82(kty, crv)   \n-        case (\"EC\", \"P-521\") => z2J9(kty, crv)\n-        case (\"OKP\", \"Ed25519\") => z6Mk(kty, crv)\n-        case (\"OKP\", \"X25519\")  => z6LS(kty, crv)\n-        case (\"RSA\", _)      => z13(kty, crv)   \n-\n- */\n+    \n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697634991094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n         case (\"EC\", \"P-521\") => z2J9\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13 \n-    \n+\n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697634996279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13 \n \n+    \n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697635008515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n         case _ => DIDUnknown(did)\n \n enum Algorithm: \n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n+\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n@@ -36,9 +37,9 @@\n         case (\"OKP\", \"Ed25519\") => z6Mk\n         case (\"OKP\", \"X25519\")  => z6LS\n         case (\"RSA\", _)      => z13 \n \n-    \n+\n    \n \n case class DIDDoc(`@context`: List[String] = List(\"https://www.w3.org/ns/did/v1\",\n     \"https://w3id.org/security/suites/ed25519-2020/v1\",\n"
+                },
+                {
+                    "date": 1697635029526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,11 @@\n         case _ => DIDUnknown(did)\n \n enum Algorithm: \n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n-\n+given algorithmEncoder: Encoder[Algorithm] = new Encoder[Algorithm] {\n+    final def apply(a: Algorithm): Json = Json.fromString(a.toString)\n+}\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697635041250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n given algorithmEncoder: Encoder[Algorithm] = new Encoder[Algorithm] {\n     final def apply(a: Algorithm): Json = Json.fromString(a.toString)\n }\n+\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697635047549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n given algorithmEncoder: Encoder[Algorithm] = new Encoder[Algorithm] {\n     final def apply(a: Algorithm): Json = Json.fromString(a.toString)\n }\n-\n+given\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697635063129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import sttp.tapir.json.circe.*\n import sttp.tapir.Schema\n import io.circe.*\n import io.circe.syntax.*\n+import magnolia1.Monadic.given_Monadic_Try\n \n enum DID(did: String):\n     case DIDWeb(did: String) extends DID(did)\n     case DIDKey(did: String) extends DID(did)\n@@ -28,9 +29,9 @@\n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n given algorithmEncoder: Encoder[Algorithm] = new Encoder[Algorithm] {\n     final def apply(a: Algorithm): Json = Json.fromString(a.toString)\n }\n-given\n+given_Monadic_Try\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697635069247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n given algorithmEncoder: Encoder[Algorithm] = new Encoder[Algorithm] {\n     final def apply(a: Algorithm): Json = Json.fromString(a.toString)\n }\n-given_Monadic_Try\n+given \n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                },
+                {
+                    "date": 1697635087583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,22 @@\n     case zDn, z82, z2J9, z6LS, z6Mk, z13\n given algorithmEncoder: Encoder[Algorithm] = new Encoder[Algorithm] {\n     final def apply(a: Algorithm): Json = Json.fromString(a.toString)\n }\n-given \n+given algorithmDecoder: Decoder[Algorithm] = new Decoder[Algorithm] {\n+    final def apply(c: HCursor): Decoder.Result[Algorithm] =\n+        for {\n+        algorithm <- c.as[String]\n+        } yield {\n+        algorithm match\n+            case \"zDn\" => Algorithm.zDn\n+            case \"z82\" => Algorithm.z82\n+            case \"z2J9\" => Algorithm.z2J9\n+            case \"z6LS\" => Algorithm.z6LS\n+            case \"z6Mk\" => Algorithm.z6Mk\n+            case \"z13\" => Algorithm.z13\n+        }\n+    }\n   \n object Algorithm:\n     def apply(kty: String, crv: String) =\n       (kty, crv) match\n"
+                }
+            ],
+            "date": 1697445958615,
+            "name": "Commit-0",
+            "content": "final case class DIDDoc()\ncase class DIDDoc(did: String, controller:Option[List[String]] = None)\n   given encodeDIDDoc: Encoder[DIDDoc] = Encoder.forProduct2(\"did\", \"controller\")(d => (d.did, d.controller))\n   given decodeDIDDoc: Decoder[DIDDoc] = Decoder.forProduct2(\"did\", \"controller\")(DIDDoc.apply)\n"
+        }
+    ]
+}
