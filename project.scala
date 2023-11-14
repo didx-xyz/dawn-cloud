@@ -12,21 +12,21 @@
 //> using dep com.github.pureconfig::pureconfig-cats-effect:0.17.4
 
 //> using dep com.github.ipfs:java-ipfs-http-client:1.4.4
-//> using dep dnsjava:dnsjava:3.5.2
+//> using dep dnsjava:dnsjava:3.5.3
 
-//> using dep com.softwaremill.sttp.client3::core:3.9.0
-//> using dep com.softwaremill.sttp.client3::circe:3.9.0
-//> using dep com.softwaremill.sttp.client3::async-http-client-backend-cats:3.9.0
+//> using dep com.softwaremill.sttp.client3::core:3.9.1
+//> using dep com.softwaremill.sttp.client3::circe:3.9.1
+//> using dep com.softwaremill.sttp.client3::async-http-client-backend-cats:3.9.1
 
-//> using dep com.softwaremill.sttp.tapir::tapir-http4s-server:1.8.2
+//> using dep com.softwaremill.sttp.tapir::tapir-http4s-server:1.9.0
 //> using dep org.http4s::http4s-ember-server:0.23.23
-//> using dep com.softwaremill.sttp.tapir::tapir-swagger-ui-bundle:1.8.2
-//> using dep com.softwaremill.sttp.tapir::tapir-json-circe:1.8.2
+//> using dep com.softwaremill.sttp.tapir::tapir-swagger-ui-bundle:1.9.0
+//> using dep com.softwaremill.sttp.tapir::tapir-json-circe:1.9.0
 //> using dep ch.qos.logback:logback-classic:1.4.11
-//> using test.dep com.softwaremill.sttp.tapir::tapir-sttp-stub-server:1.8.2
+//> using test.dep com.softwaremill.sttp.tapir::tapir-sttp-stub-server:1.9.0
 //> using test.dep org.scalatest::scalatest:3.2.17
-//> using test.dep com.softwaremill.sttp.client3::circe:3.9.0
-//> using dep com.nimbusds:nimbus-jose-jwt:9.37
+//> using test.dep com.softwaremill.sttp.client3::circe:3.9.1
+//> using dep com.nimbusds:nimbus-jose-jwt:9.37.1
 //> using dep com.google.crypto.tink:tink:1.11.0
 //> using dep org.bouncycastle:bcprov-jdk15on:1.70
 //> using dep org.bouncycastle:bcpkix-jdk15on:1.70

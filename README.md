@@ -9,6 +9,8 @@
 
 ## DIDWeb Method: did:web
 
+We resolve did:web to DidDocs by utilising the IPFS and IPNS network services.
+
 ### DIDWeb Registrar
 
 ### DIDWeb Resolver
