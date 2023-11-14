@@ -8,11 +8,9 @@ import com.monovore.decline.*
 import com.monovore.decline.effect.*
 import io.circe.parser.*
 import io.circe.syntax.*
-import io.ipfs.api.*
 import java.util.concurrent.CompletableFuture
 import cats.data.EitherT
 import scala.jdk.CollectionConverters._
-import io.ipfs.multihash.Multihash
 import scala.util.Try
 
 import scala.concurrent.ExecutionContext
@@ -61,15 +59,3 @@ object DawnCloud extends IOApp:
         } yield ()
       }
       .as(ExitCode.Success)
-
-  // write to IPFS
-  def writeIPFS(didDoc: DIDDoc): IO[Either[Error, Multihash]] =
-    val json = didDoc.asJson.noSpaces
-
-    val result = (for
-      ipfs <- EitherT(IO(new IPFS("/ip4/127.0.0.1/tcp/5001")).attempt) // Replace with your IPFS HTTP API endpoint URL
-      ns   <- EitherT(IO(new NamedStreamable.ByteArrayWrapper(json.getBytes)).attempt)
-      cf   <- EitherT(IO(ipfs.add(ns).asScala.toList.head).attempt)
-      pn   <- EitherT(IO(cf.hash).attempt)
-    yield pn).value.map(_.leftMap(Error(_)))
-    result
